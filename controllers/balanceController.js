@@ -21,7 +21,7 @@ exports.getBalance = wrap(function*(req, res, next) {
                   users: user
                 }
             ]
-        }).select("-users").lean();
+        }).select("-users -_id").lean();
 
         // used lean for increased performance (removed the mongoose overhead)
         // used select ('-users') for not sending it as a response
